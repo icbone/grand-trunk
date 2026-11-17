@@ -17,7 +17,7 @@ Peter's tournament records show how strong the inaugural year was:
 
 - **Won the open division at the Boston Invitational.** Years later he still called it one of the best-run, most competitive tournaments on the calendar.
 - Tied for 3rd–4th at Montreal Jazzfest and 4th at Motown Throwdown in Detroit.
-- Played Canadian Nationals in Vancouver, then the UPA series: 3rd at Sectionals in Rochester and 8th at Regionals in Boston.
+- 8th at Canadian Nationals in Vancouver, then the UPA series: 3rd at Sectionals in Rochester and 8th at Regionals in Boston.
 
 ## 2006: a huge leap
 
