@@ -47,9 +47,23 @@ const hasFacts = Boolean(d.league || d.division || d.record || d.gm || d.captain
       </ul>
     </>
   )}
+  {d.tournaments.length > 0 && (
+    <>
+      <h2>Tournaments</h2>
+      <table>
+        <caption class="sr-only">{d.year} tournaments and finishes</caption>
+        <thead><tr><th scope="col">Tournament</th><th scope="col">Location</th><th scope="col">Finish</th><th scope="col">Note</th></tr></thead>
+        <tbody>
+          {d.tournaments.map((t) => (
+            <tr><td>{t.name}</td><td>{t.location ?? ''}</td><td>{t.finish ?? 'Not recorded'}</td><td>{t.note ?? ''}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </>
+  )}
   {d.games.length > 0 && (
     <>
-      <h2>Results</h2>
+      <h2>Game results</h2>
       <table>
         <caption class="sr-only">{d.year} game results</caption>
         <thead><tr><th scope="col">Date</th><th scope="col">Opponent</th><th scope="col">Result</th><th scope="col">Score</th><th scope="col">Note</th></tr></thead>

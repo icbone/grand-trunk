@@ -36,6 +36,10 @@ const seasons = defineCollection({
         }),
       )
       .default([]),
+    // Tournaments attended and where Grand Trunk finished
+    tournaments: z
+      .array(z.object({ name: z.string(), location: z.string().optional(), finish: z.string().optional(), note: z.string().optional() }))
+      .default([]),
     // Where the facts came from (Facebook post, league page, etc.)
     // Plain text, or { label, url } for a linked source
     sources: z.array(z.union([z.string(), z.object({ label: z.string(), url: z.string().url() })])).default([]),
