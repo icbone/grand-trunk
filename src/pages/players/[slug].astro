@@ -26,6 +26,14 @@ const summary = [
       </ul>
     </>
   )}
+  {player.highlights.length > 0 && (
+    <>
+      <h2>Highlights</h2>
+      <ul class="plain highlights">
+        {player.highlights.map((h) => <li class="card"><a href={`${base}/seasons/${h.year}`}>{h.year}</a>: {h.text}</li>)}
+      </ul>
+    </>
+  )}
   {player.years.length > 0 && (
     <>
       <h2>Played</h2>

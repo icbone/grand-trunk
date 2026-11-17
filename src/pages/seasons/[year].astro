@@ -31,6 +31,14 @@ const people = (names: string[]) => names.map(canonical).join(', ');
     {d.roster.length > 0 && <><dt>Roster size</dt><dd>{d.roster.length} players</dd></>}
   </dl>
   <div class="prose"><Content /></div>
+  {d.highlights.length > 0 && (
+    <>
+      <h2>Highlights</h2>
+      <ul class="plain highlights">
+        {d.highlights.map((h) => <li class="card"><a href={link(h.name)}>{canonical(h.name)}</a>: {h.text}</li>)}
+      </ul>
+    </>
+  )}
   {d.games.length > 0 && (
     <>
       <h2>Results</h2>

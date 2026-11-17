@@ -100,3 +100,4 @@ ul.plain { list-style: none; padding: 0; }
   background: #fff; border: 2px solid var(--navy); border-radius: 4px; }
 tr[hidden] { display: none; }
 @media (max-width: 40rem) { .hero h1 { font-size: 2rem; } .facts { grid-template-columns: 1fr; } .facts dt { margin-top: .4rem; } }
+.highlights { display: grid; gap: .6rem; }
