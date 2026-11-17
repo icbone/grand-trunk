@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
-import { slugify } from '../../lib/players';
+import { slugify, canonical } from '../../lib/players';
 export async function getStaticPaths() {
   const seasons = await getCollection('seasons');
   return seasons.map((s) => ({ params: { year: String(s.data.year) }, props: { season: s } }));
@@ -16,7 +16,7 @@ const { Content } = await render(season);
   <p class="lede">{[d.league, d.division].filter(Boolean).join(' · ')}{d.finish && ` — ${d.finish}`}{d.record && ` (${d.record})`}</p>
   {d.placeholder && <div class="banner">Sample data — not real results yet.</div>}
   <Content />
-  {d.captains.length > 0 && <p><b>Captains:</b> {d.captains.join(', ')}</p>}
+  {d.captains.length > 0 && <p><b>Captains:</b> {d.captains.map(canonical).join(', ')}</p>}
   {d.coaches.length > 0 && <p><b>Coaches:</b> {d.coaches.join(', ')}</p>}
   {d.gm && <p><b>General manager:</b> {d.gm}</p>}
   {d.games.length > 0 && (
@@ -36,7 +36,7 @@ const { Content } = await render(season);
     <>
       <h2>Roster</h2>
       <ul class="tags">
-        {d.roster.map((n) => <li><a href={`${base}/players/${slugify(n)}`}>{n}</a>{d.rosterNotes[n] && <small> · {d.rosterNotes[n]}</small>}</li>)}
+        {d.roster.map((n) => <li><a href={`${base}/players/${slugify(canonical(n))}`}>{canonical(n)}</a>{d.rosterNotes[n] && <small> · {d.rosterNotes[n]}</small>}</li>)}
       </ul>
     </>
   )}
