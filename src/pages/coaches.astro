@@ -5,10 +5,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const coaches = await getCoaches();
 ---
 <Base title="Coaches">
-  <h1>Coaches</h1>
-  <p class="lede">Everyone who has coached Grand Trunk, with the seasons they coached.</p>
+  <section class="hero">
+    <p class="eyebrow">{coaches.length} coaches on file</p>
+    <h1>Coaches</h1>
+    <p class="lede">Everyone who has coached Grand Trunk, with the seasons they coached.</p>
+  </section>
   <table>
-    <thead><tr><th>Coach</th><th>Seasons coached</th><th>Years</th><th>Also played</th></tr></thead>
+    <caption class="sr-only">Grand Trunk coaches</caption>
+    <thead><tr><th scope="col">Coach</th><th scope="col">Seasons coached</th><th scope="col">Years</th><th scope="col">Also played</th></tr></thead>
     <tbody>
       {coaches.map((c) => (
         <tr>

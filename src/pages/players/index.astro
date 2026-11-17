@@ -5,10 +5,19 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const players = await getPlayers();
 ---
 <Base title="Players">
-  <h1>Players</h1>
-  <p class="lede">Everyone who has worn the jersey, ordered by seasons played.</p>
-  <table>
-    <thead><tr><th>Player</th><th>Seasons played</th><th>Coached</th><th>First</th><th>Last</th></tr></thead>
+  <section class="hero">
+    <p class="eyebrow">{players.length} players on file</p>
+    <h1>Players</h1>
+    <p class="lede">Everyone who has worn the jersey, ordered by seasons played.</p>
+  </section>
+  <div class="filter">
+    <label for="player-filter">Find a player</label>
+    <input id="player-filter" type="search" autocomplete="off" placeholder="Type a name" />
+    <p id="player-count" class="sr-only" aria-live="polite"></p>
+  </div>
+  <table id="player-table">
+    <caption class="sr-only">All Grand Trunk players</caption>
+    <thead><tr><th scope="col">Player</th><th scope="col">Seasons played</th><th scope="col">Coached</th><th scope="col">First</th><th scope="col">Last</th></tr></thead>
     <tbody>
       {players.map((p) => (
         <tr><td><a href={`${base}/players/${p.slug}`}>{p.name}</a></td><td>{p.years.length}</td><td>{p.coachYears.length || ''}</td><td>{p.years[0]}</td><td>{p.years.at(-1)}</td></tr>
@@ -16,3 +25,18 @@ const players = await getPlayers();
     </tbody>
   </table>
 </Base>
+<script>
+  const input = document.getElementById('player-filter') as HTMLInputElement;
+  const rows = [...document.querySelectorAll<HTMLTableRowElement>('#player-table tbody tr')];
+  const count = document.getElementById('player-count')!;
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    let shown = 0;
+    for (const r of rows) {
+      const hit = !q || (r.cells[0].textContent ?? '').toLowerCase().includes(q);
+      r.hidden = !hit;
+      if (hit) shown++;
+    }
+    count.textContent = `${shown} players shown`;
+  });
+</script>

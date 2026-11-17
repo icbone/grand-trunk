@@ -30,8 +30,6 @@ const seasons = defineCollection({
         }),
       )
       .default([]),
-    // Set true on invented sample data so the site flags it. Remove once verified.
-    placeholder: z.boolean().default(false),
     // Where the facts came from (Facebook post, league page, etc.)
     sources: z.array(z.string()).default([]),
   }),
@@ -44,7 +42,6 @@ const lore = defineCollection({
     title: z.string(),
     order: z.number().default(100),
     year: z.number().optional(),
-    placeholder: z.boolean().default(false),
   }),
 });
 

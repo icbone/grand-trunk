@@ -13,8 +13,11 @@ const summary = [
 ].filter(Boolean).join(' · ');
 ---
 <Base title={player.name}>
-  <h1>{player.name}</h1>
-  <p class="lede">{summary} with Grand Trunk</p>
+  <section class="hero">
+    <p class="eyebrow"><a href={`${base}/players`}>← All players</a></p>
+    <h1>{player.name}</h1>
+    <p class="lede">{summary} with Grand Trunk</p>
+  </section>
   {player.years.length > 0 && (
     <>
       <h2>Played</h2>

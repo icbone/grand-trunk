@@ -1,24 +1,25 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import { medal } from '../../lib/medals';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const seasons = (await getCollection('seasons')).sort((a, b) => b.data.year - a.data.year);
 ---
 <Base title="Seasons">
-  <h1>Seasons</h1>
-  <table>
-    <thead><tr><th>Year</th><th>League</th><th>Record</th><th>Finish</th><th>Roster</th></tr></thead>
-    <tbody>
-      {seasons.map((s) => (
-        <tr>
-          <td><a href={`${base}/seasons/${s.data.year}`}>{s.data.year}</a>{s.data.placeholder && ' *'}</td>
-          <td>{s.data.league ?? '—'}</td>
-          <td>{s.data.record ?? '—'}</td>
-          <td>{s.data.finish ?? '—'}</td>
-          <td>{s.data.roster.length || '—'}</td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-  <p class="lede">* sample data</p>
+  <section class="hero">
+    <p class="eyebrow">Season by season</p>
+    <h1>Seasons</h1>
+    <p class="lede">Every Grand Trunk season on file: finishes, rosters and coaches.</p>
+  </section>
+  <ul class="plain grid">
+    {seasons.map((s) => (
+      <li class:list={['card', 'season-card', s.data.honour && 'honour']}>
+        <h2><a href={`${base}/seasons/${s.data.year}`}>{s.data.year}</a>{s.data.honour && <> <span role="img" aria-label={medal[s.data.honour].label}>{medal[s.data.honour].emoji}</span></>}</h2>
+        <p class="finish">{s.data.finish ?? 'Result not recorded'}</p>
+        <p class="meta">
+          {s.data.roster.length > 0 ? `${s.data.roster.length} players` : 'Roster not recorded'}{s.data.coaches.length > 0 && ` · ${s.data.coaches.length} coach${s.data.coaches.length === 1 ? '' : 'es'}`}
+        </p>
+      </li>
+    ))}
+  </ul>
 </Base>

@@ -2,36 +2,39 @@
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 import { getPlayers, getCoaches } from '../lib/players';
+import { medal } from '../lib/medals';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const seasons = (await getCollection('seasons')).sort((a, b) => b.data.year - a.data.year);
 const players = await getPlayers();
 const coachCount = (await getCoaches()).length;
-const first = Math.min(2004, ...seasons.map((s) => s.data.year));
 const gold = seasons.filter((s) => s.data.honour === 'gold').map((s) => s.data.year).sort();
 const bronze = seasons.filter((s) => s.data.honour === 'bronze').map((s) => s.data.year).sort();
-const anyPlaceholder = seasons.some((s) => s.data.placeholder);
 ---
 <Base>
-  <h1>Grand Trunk</h1>
-  <p class="lede">Toronto's longest-running open club ultimate team. Rosters, results and lore, since 2004.</p>
-  {anyPlaceholder && <div class="banner">Work in progress: seasons marked “sample data” are placeholders until real history is filled in.</div>}
+  <section class="hero">
+    <p class="eyebrow">Toronto · Open division · Est. 2004</p>
+    <h1>Grand Trunk</h1>
+    <p class="lede">Toronto's longest-running open club ultimate team. Rosters, results and lore, since 2004.</p>
+  </section>
   <div class="stats">
-    <div class="stat"><b>{new Date().getFullYear() - first}+</b><span>years of Grand Trunk</span></div>
+    <div class="stat"><b>{new Date().getFullYear() - 2004}+</b><span>years of Grand Trunk</span></div>
     <div class="stat"><b>{seasons.length}</b><span>seasons on file</span></div>
     <div class="stat"><b>{players.length}</b><span>players on file</span></div>
     <div class="stat"><b>{coachCount}</b><span>coaches on file</span></div>
   </div>
   <h2>Honours</h2>
-  <ul class="plain">
-    {gold.length > 0 && <li>🥇 Canadian National Champions — {gold.join(', ')}</li>}
-    {bronze.length > 0 && <li>🥉 Canadian Nationals — {bronze.join(', ')}</li>}
+  <ul class="plain honours">
+    {gold.length > 0 && <li class="card"><span role="img" aria-label={medal.gold.label}>{medal.gold.emoji}</span> Canadian National Champions <b>{gold.join(', ')}</b></li>}
+    {bronze.length > 0 && <li class="card"><span role="img" aria-label={medal.bronze.label}>{medal.bronze.emoji}</span> Canadian Nationals bronze <b>{bronze.join(', ')}</b></li>}
   </ul>
-  <h2>Latest seasons</h2>
-  <ul class="plain">
-    {seasons.slice(0, 5).map((s) => (
-      <li><a href={`${base}/seasons/${s.data.year}`}>{s.data.year}</a>
-        {s.data.finish && <> — {s.data.finish}</>}{s.data.record && <> ({s.data.record})</>}</li>
+  <h2>Recent seasons</h2>
+  <ul class="plain grid">
+    {seasons.slice(0, 4).map((s) => (
+      <li class="card season-card">
+        <h3><a href={`${base}/seasons/${s.data.year}`}>{s.data.year}</a></h3>
+        <p>{s.data.finish ?? 'Roster on file'}</p>
+      </li>
     ))}
   </ul>
-  <p><a href={`${base}/seasons`}>All seasons →</a> · <a href={`${base}/lore`}>Read the lore →</a></p>
+  <p><a href={`${base}/seasons`}>All seasons</a> · <a href={`${base}/lore`}>Read the lore</a></p>
 </Base>

@@ -5,12 +5,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const lore = (await getCollection('lore')).sort((a, b) => a.data.order - b.data.order);
 ---
 <Base title="Lore">
-  <h1>Lore</h1>
-  <ul class="plain">
+  <section class="hero">
+    <p class="eyebrow">The stories</p>
+    <h1>Lore</h1>
+    <p class="lede">Where Grand Trunk came from and the stories that stuck.</p>
+  </section>
+  <ul class="plain grid">
     {lore.map((l) => (
-      <li class="card" style="margin-bottom:.75rem">
-        <a href={`${base}/lore/${l.id}`}><b>{l.data.title}</b></a>{l.data.year && <> · {l.data.year}</>}
-        {l.data.placeholder && ' (sample)'}
+      <li class="card season-card">
+        <h2><a href={`${base}/lore/${l.id}`}>{l.data.title}</a></h2>
+        {l.data.year && <p class="meta">{l.data.year}</p>}
       </li>
     ))}
   </ul>
