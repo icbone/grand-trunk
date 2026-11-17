@@ -6,6 +6,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const seasons = (await getCollection('seasons')).sort((a, b) => b.data.year - a.data.year);
 const players = await getPlayers();
 const first = Math.min(2004, ...seasons.map((s) => s.data.year));
+const gold = seasons.filter((s) => s.data.honour === 'gold').map((s) => s.data.year).sort();
+const bronze = seasons.filter((s) => s.data.honour === 'bronze').map((s) => s.data.year).sort();
 const anyPlaceholder = seasons.some((s) => s.data.placeholder);
 ---
 <Base>
@@ -17,6 +19,11 @@ const anyPlaceholder = seasons.some((s) => s.data.placeholder);
     <div class="stat"><b>{seasons.length}</b><span>seasons on file</span></div>
     <div class="stat"><b>{players.length}</b><span>players on file</span></div>
   </div>
+  <h2>Honours</h2>
+  <ul class="plain">
+    {gold.length > 0 && <li>🥇 Canadian National Champions — {gold.join(', ')}</li>}
+    {bronze.length > 0 && <li>🥉 Canadian Nationals — {bronze.join(', ')}</li>}
+  </ul>
   <h2>Latest seasons</h2>
   <ul class="plain">
     {seasons.slice(0, 5).map((s) => (
