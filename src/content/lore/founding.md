@@ -15,7 +15,7 @@ In 2004, a group of younger players decided they wanted more intensity and more 
 - one or two younger players from **Black Sheep**, a mixed team that later became Bombing Madd Fatties and then Union;
 - some of the best up-and-coming young players from **Pong**.
 
-They left to start Grand Trunk. **Colin Hanes**, who came over from Black Sheep and the Fatties, came up with the name.
+They left to start Grand Trunk. **[Colin Hanes](/grand-trunk/players/colin-hanes)**, who came over from Black Sheep and the Fatties, came up with the name.
 
 The same year, Pong disbanded, and a core of its players formed **Roy**.
 
