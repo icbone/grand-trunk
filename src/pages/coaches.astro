@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCoaches } from '../lib/players';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const coaches = await getCoaches();
+---
+<Base title="Coaches">
+  <h1>Coaches</h1>
+  <p class="lede">Everyone who has coached Grand Trunk, with the seasons they coached.</p>
+  <table>
+    <thead><tr><th>Coach</th><th>Seasons coached</th><th>Years</th><th>Also played</th></tr></thead>
+    <tbody>
+      {coaches.map((c) => (
+        <tr>
+          <td><a href={`${base}/players/${c.slug}`}>{c.name}</a></td>
+          <td>{c.coachYears.length}</td>
+          <td>{c.coachYears.join(', ')}</td>
+          <td>{c.years.length ? `${c.years.length} seasons` : '—'}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</Base>

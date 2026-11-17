@@ -8,10 +8,10 @@ const players = await getPlayers();
   <h1>Players</h1>
   <p class="lede">Everyone who has worn the jersey, ordered by seasons played.</p>
   <table>
-    <thead><tr><th>Player</th><th>Seasons</th><th>First</th><th>Last</th></tr></thead>
+    <thead><tr><th>Player</th><th>Seasons played</th><th>Coached</th><th>First</th><th>Last</th></tr></thead>
     <tbody>
       {players.map((p) => (
-        <tr><td><a href={`${base}/players/${p.slug}`}>{p.name}</a></td><td>{p.years.length}</td><td>{p.years[0]}</td><td>{p.years.at(-1)}</td></tr>
+        <tr><td><a href={`${base}/players/${p.slug}`}>{p.name}</a></td><td>{p.years.length}</td><td>{p.coachYears.length || ''}</td><td>{p.years[0]}</td><td>{p.years.at(-1)}</td></tr>
       ))}
     </tbody>
   </table>
