@@ -3,12 +3,38 @@ title: How Grand Trunk started
 order: 1
 year: 2004
 ---
-Grand Trunk began in 2004, out of the breakup of an older Toronto open team. Pong disbanded that year. One group of its players formed Roy, and another group formed a new team called Grand Trunk.
+## Before Grand Trunk: Joystik
 
-In 2005, Grand Trunk and Roy were folded into Toronto's club system alongside GOAT, which became a Toronto-only team that year. The system has been described as stable and productive: combined tryouts, with top players moving up through the teams from year to year.
+In the early 2000s, Toronto's top open team was GOAT, but GOAT was a combined Toronto–Ottawa team and couldn't field a full roster for local practices. Joystik filled in as Toronto's "second" open team and trained alongside GOAT.
 
-Since then, Toronto's open division has run on GOAT, Grand Trunk and Roy sharing resources, with Too Bad offering a home for players who don't fit the club system.
+## The breakaway
 
-*Sources: [Toronto Ultimate Club, History of Open Touring in Toronto](https://www.tuc.org/node/33979).*
+In 2004, a group of younger players decided they wanted more intensity and more commitment than they were getting. They came from three teams:
 
-*This page is a first pass built from public sources. Got a story, a name, or a correction? It's all welcome.*
+- the younger players on **Joystik**, including Kirk, Inian, Shooter, Chua and Dean;
+- one or two younger players from **Black Sheep**, a mixed team that later became Bombing Madd Fatties and then Union;
+- some of the best up-and-coming young players from **Pong**.
+
+They left to start Grand Trunk. **Colin Hanes**, who came over from Black Sheep and the Fatties, came up with the name.
+
+The same year, Pong disbanded, and a core of its players formed **Roy**.
+
+## The first season
+
+Grand Trunk practiced Tuesdays and Thursdays. On Thursdays GOAT practiced at the same field, and the two teams often scrimmaged together at the end of the night.
+
+The inaugural season was a strong one. Grand Trunk beat Joystik and became the top all-Toronto team. Along the way they picked up the odd extra player for tournaments like No Surf in Cleveland and Motown Throwdown in Detroit.
+
+## Birth of the club system
+
+Grand Trunk caught GOAT's attention. Within a year or two, GOAT became an almost entirely Toronto team and brought up Grand Trunk's top players, Kirk and Inian among them. In 2005, Grand Trunk and Roy were folded into a club system alongside GOAT, with combined tryouts and top players moving up through the teams from year to year.
+
+That's been the shape of Toronto open ever since: **GOAT, Grand Trunk and Roy** sharing resources, with Too Bad offering a home for players who don't fit the club system.
+
+Joystik folded after that 2004 season. Its players later regrouped with former GOAT players as **Tombstone**, competing in the masters and grand masters divisions. The irony: once the under-30s left to form Grand Trunk, everyone still on Joystik was already masters-eligible.
+
+---
+
+*Sources: recollections of Devin Hanes, who played on Joystik, practiced with Grand Trunk in its first season and filled in at tournaments; [Toronto Ultimate Club, History of Open Touring in Toronto](https://www.tuc.org/node/33979). Devin's account dates the first season to '94; the TUC history and team records place it in 2004.*
+
+*Got a story, a name, or a correction? It's all welcome.*
