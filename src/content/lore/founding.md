@@ -11,7 +11,7 @@ In the early 2000s, Toronto's top open team was GOAT, but GOAT was a combined To
 
 In 2004, a group of younger players decided they wanted more intensity and more commitment than they were getting. They came from three teams:
 
-- the younger players on **Joystik**, including Kirk, Inian, Shooter, [Chua](/grand-trunk/players/shawn-chua) and Dean;
+- the younger players on **Joystik**, including Kirk, [Inian](/grand-trunk/players/inian-moorthy), Shooter, [Chua](/grand-trunk/players/shawn-chua) and Dean;
 - one or two younger players from **Black Sheep**, a mixed team that later became Bombing Madd Fatties and then Union;
 - some of the best up-and-coming young players from **Pong**.
 
