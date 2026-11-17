@@ -4,14 +4,14 @@ import { getCoaches } from '../lib/players';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const coaches = await getCoaches();
 ---
-<Base title="Coaches">
+<Base title="Coaches & Captains">
   <section class="hero">
     <p class="eyebrow">{coaches.length} coaches and captains on file</p>
-    <h1>Coaches</h1>
+    <h1>Coaches &amp; Captains</h1>
     <p class="lede">Everyone who has coached or captained Grand Trunk. For most of the team's history the captains were also its coaches, so captain seasons count here. (C) marks a season as captain.</p>
   </section>
   <table>
-    <caption class="sr-only">Grand Trunk coaches</caption>
+    <caption class="sr-only">Grand Trunk coaches and captains</caption>
     <thead><tr><th scope="col">Name</th><th scope="col">Seasons coached</th><th scope="col">Years</th><th scope="col">Also played</th></tr></thead>
     <tbody>
       {coaches.map((c) => (
