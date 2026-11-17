@@ -61,5 +61,7 @@ const people = (names: string[]) => names.map(canonical).join(', ');
       </ul>
     </>
   )}
-  {d.sources.length > 0 && <p class="sources">Sources: {d.sources.join('; ')}</p>}
+  {d.sources.length > 0 && (
+    <p class="sources">Sources: {d.sources.map((src, i) => <>{i > 0 && '; '}{typeof src === 'string' ? src : <a href={src.url}>{src.label}</a>}</>)}</p>
+  )}
 </Base>

@@ -35,7 +35,8 @@ const seasons = defineCollection({
       )
       .default([]),
     // Where the facts came from (Facebook post, league page, etc.)
-    sources: z.array(z.string()).default([]),
+    // Plain text, or { label, url } for a linked source
+    sources: z.array(z.union([z.string(), z.object({ label: z.string(), url: z.string().url() })])).default([]),
   }),
 });
 
