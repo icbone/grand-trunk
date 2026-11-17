@@ -1,6 +1,6 @@
 # Grand Trunk
 
-History site for Grand Trunk, Toronto's longest-running open club ultimate team (est. 2004).
+History site for Grand Trunk, one of Toronto's longest-running open club ultimate teams (est. 2004).
 Static Astro site, deployed to GitHub Pages: https://icbone.github.io/grand-trunk/
 
 ## Adding history
