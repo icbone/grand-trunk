@@ -41,6 +41,6 @@ Joystik played one more season, in 2005, then folded. Its players later regroupe
 
 ---
 
-*Sources: recollections of Devin Hanes, who played on Joystik, practiced with Grand Trunk in its first season and filled in at tournaments; [Toronto Ultimate Club, History of Open Touring in Toronto](https://www.tuc.org/node/33979), including its team lineage chart. Devin's account dates the first season to '94; the TUC history and team records place it in 2004.*
+*Sources: [Toronto Ultimate Club, History of Open Touring in Toronto](https://www.tuc.org/node/33979), including its team lineage chart.*
 
 *Got a story, a name, or a correction? It's all welcome.*
