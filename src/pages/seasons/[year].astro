@@ -17,7 +17,9 @@ const { Content } = await render(season);
   {d.placeholder && <div class="banner">Sample data — not real results yet.</div>}
   <Content />
   {d.captains.length > 0 && <p><b>Captains:</b> {d.captains.map(canonical).join(', ')}</p>}
-  {d.coaches.length > 0 && <p><b>Coaches:</b> {d.coaches.join(', ')}</p>}
+  {d.coaches.length > 0 && (
+    <p><b>Coaches:</b> {d.coaches.map((c, i) => <>{i > 0 && ', '}<a href={`${base}/players/${slugify(canonical(c))}`}>{canonical(c)}</a></>)}</p>
+  )}
   {d.gm && <p><b>General manager:</b> {d.gm}</p>}
   {d.games.length > 0 && (
     <>
