@@ -12,6 +12,8 @@ const seasons = defineCollection({
     record: z.string().optional(), // "8-4"
     finish: z.string().optional(), // "Semifinalist"
     // Canadian Nationals podium finish, shown in the home page honours
+    // One-line story of the season, shown under the result
+    headline: z.string().optional(),
     honour: z.enum(['gold', 'silver', 'bronze']).optional(),
     captains: z.array(z.string()).default([]),
     gm: z.string().optional(), // general manager

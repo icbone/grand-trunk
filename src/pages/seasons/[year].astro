@@ -19,6 +19,7 @@ const hasFacts = Boolean(d.league || d.division || d.record || d.gm || d.captain
     <p class="eyebrow"><a href={`${base}/seasons`}>← All seasons</a></p>
     <h1>{d.year} season {d.honour && <span role="img" aria-label={medal[d.honour].label}>{medal[d.honour].emoji}</span>}</h1>
     {d.finish && <p class="lede">{d.finish}</p>}
+    {d.headline && <p class="headline">{d.headline}</p>}
   </section>
   {hasFacts && (
   <dl class="facts card">
