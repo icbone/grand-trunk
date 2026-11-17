@@ -32,6 +32,12 @@ const hasFacts = Boolean(d.league || d.division || d.record || d.gm || d.captain
     {d.roster.length > 0 && <><dt>Roster size</dt><dd>{d.roster.length} players</dd></>}
   </dl>
   )}
+  {d.photo && (
+    <figure class="team-photo">
+      <img src={`${base}/${d.photo.src}`} alt={d.photo.alt} width="1400" height="1050" loading="lazy" decoding="async" />
+      {d.photo.caption && <figcaption>{d.photo.caption}</figcaption>}
+    </figure>
+  )}
   <div class="prose"><Content /></div>
   {d.highlights.length > 0 && (
     <>
@@ -49,7 +55,7 @@ const hasFacts = Boolean(d.league || d.division || d.record || d.gm || d.captain
         <thead><tr><th scope="col">Date</th><th scope="col">Opponent</th><th scope="col">Result</th><th scope="col">Score</th><th scope="col">Note</th></tr></thead>
         <tbody>
           {d.games.map((g) => (
-            <tr><td>{g.date ?? ''}</td><td>{g.opponent}</td><td class={g.result}>{g.result}</td><td>{g.score}</td><td>{g.note ?? ''}</td></tr>
+            <tr><td>{g.date ?? ''}</td><td>{g.opponent}</td><td class={g.result}>{g.result}</td><td>{g.score ?? 'Not recorded'}</td><td>{g.note ?? ''}</td></tr>
           ))}
         </tbody>
       </table>

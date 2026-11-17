@@ -23,12 +23,14 @@ const seasons = defineCollection({
     // Per-player tags for a season, e.g. { "Ian Bone": "Rookie" }
     rosterNotes: z.record(z.string(), z.string()).default({}),
     roster: z.array(z.string()).default([]),
+    // Team photo in public/photos, e.g. { src: "photos/2004-team.jpg", alt: "..." }
+    photo: z.object({ src: z.string(), alt: z.string(), caption: z.string().optional() }).optional(),
     games: z
       .array(
         z.object({
           date: z.string().optional(),
           opponent: z.string(),
-          score: z.string(), // "15-12" (Grand Trunk first)
+          score: z.string().optional(), // "15-12" (Grand Trunk first)
           result: z.enum(['W', 'L', 'T']),
           note: z.string().optional(),
         }),
