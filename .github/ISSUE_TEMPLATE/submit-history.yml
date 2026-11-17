@@ -1,0 +1,50 @@
+name: Submit history
+description: Share a season result, roster, story or photo for review before it goes on the site.
+title: "[History] "
+labels: ["history submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping record Grand Trunk's history. Every submission is reviewed before anything is added.
+        **Please share names only.** Don't include anyone's email, phone number, address, age, job, health or family details.
+  - type: input
+    id: year
+    attributes:
+      label: Season or year
+      placeholder: "e.g. 2009"
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What are you adding?
+      multiple: true
+      options:
+        - Tournament result or finish
+        - Roster or captains
+        - Game score
+        - Story or highlight
+        - Photo or video link
+        - Correction to something on the site
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Tournament names, finishes, scores, who was on the team, or the story.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Where this comes from
+      description: Links to league pages, posts, blogs or videos, or say it's from memory.
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Before you submit
+      options:
+        - label: I've included names only, with no other personal details about anyone.
+          required: true
