@@ -40,11 +40,5 @@ const { Content } = await render(season);
       </ul>
     </>
   )}
-  {d.practiceRoster.length > 0 && (
-    <>
-      <h2>Practice roster</h2>
-      <ul class="tags">{d.practiceRoster.map((n) => <li>{n}</li>)}</ul>
-    </>
-  )}
   {d.sources.length > 0 && <p class="lede">Sources: {d.sources.join('; ')}</p>}
 </Base>
