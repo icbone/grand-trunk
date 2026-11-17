@@ -13,6 +13,9 @@ const seasons = defineCollection({
     finish: z.string().optional(), // "Semifinalist"
     captains: z.array(z.string()).default([]),
     gm: z.string().optional(), // general manager
+    coaches: z.array(z.string()).default([]),
+    // Per-player tags for a season, e.g. { "Ian Bone": "Rookie" }
+    rosterNotes: z.record(z.string(), z.string()).default({}),
     practiceRoster: z.array(z.string()).default([]),
     roster: z.array(z.string()).default([]),
     games: z

@@ -17,6 +17,7 @@ const { Content } = await render(season);
   {d.placeholder && <div class="banner">Sample data — not real results yet.</div>}
   <Content />
   {d.captains.length > 0 && <p><b>Captains:</b> {d.captains.join(', ')}</p>}
+  {d.coaches.length > 0 && <p><b>Coaches:</b> {d.coaches.join(', ')}</p>}
   {d.gm && <p><b>General manager:</b> {d.gm}</p>}
   {d.games.length > 0 && (
     <>
@@ -35,7 +36,7 @@ const { Content } = await render(season);
     <>
       <h2>Roster</h2>
       <ul class="tags">
-        {d.roster.map((n) => <li><a href={`${base}/players/${slugify(n)}`}>{n}</a></li>)}
+        {d.roster.map((n) => <li><a href={`${base}/players/${slugify(n)}`}>{n}</a>{d.rosterNotes[n] && <small> · {d.rosterNotes[n]}</small>}</li>)}
       </ul>
     </>
   )}
