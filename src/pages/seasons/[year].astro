@@ -12,7 +12,7 @@ const { season } = Astro.props;
 const d = season.data;
 const { Content } = await render(season);
 const link = (n: string) => `${base}/players/${slugify(canonical(n))}`;
-const people = (names: string[]) => names.map(canonical).join(', ');
+const hasFacts = Boolean(d.league || d.division || d.record || d.gm || d.captains.length || d.coaches.length || d.awards.length || d.roster.length);
 ---
 <Base title={`${d.year} season`}>
   <section class="hero">
@@ -20,6 +20,7 @@ const people = (names: string[]) => names.map(canonical).join(', ');
     <h1>{d.year} season {d.honour && <span role="img" aria-label={medal[d.honour].label}>{medal[d.honour].emoji}</span>}</h1>
     {d.finish && <p class="lede">{d.finish}</p>}
   </section>
+  {hasFacts && (
   <dl class="facts card">
     {d.league && <><dt>League</dt><dd>{d.league}</dd></>}
     {d.division && <><dt>Division</dt><dd>{d.division}</dd></>}
@@ -30,6 +31,7 @@ const people = (names: string[]) => names.map(canonical).join(', ');
     {d.gm && <><dt>General manager</dt><dd>{canonical(d.gm)}</dd></>}
     {d.roster.length > 0 && <><dt>Roster size</dt><dd>{d.roster.length} players</dd></>}
   </dl>
+  )}
   <div class="prose"><Content /></div>
   {d.highlights.length > 0 && (
     <>
