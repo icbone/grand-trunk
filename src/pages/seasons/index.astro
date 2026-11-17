@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const seasons = (await getCollection('seasons')).sort((a, b) => b.data.year - a.data.year);
+---
+<Base title="Seasons">
+  <h1>Seasons</h1>
+  <table>
+    <thead><tr><th>Year</th><th>League</th><th>Record</th><th>Finish</th><th>Roster</th></tr></thead>
+    <tbody>
+      {seasons.map((s) => (
+        <tr>
+          <td><a href={`${base}/seasons/${s.data.year}`}>{s.data.year}</a>{s.data.placeholder && ' *'}</td>
+          <td>{s.data.league ?? '—'}</td>
+          <td>{s.data.record ?? '—'}</td>
+          <td>{s.data.finish ?? '—'}</td>
+          <td>{s.data.roster.length || '—'}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  <p class="lede">* sample data</p>
+</Base>

@@ -1,0 +1,14 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+  return (await getCollection('lore')).map((l) => ({ params: { id: l.id }, props: { entry: l } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+<Base title={entry.data.title}>
+  <h1>{entry.data.title}</h1>
+  {entry.data.placeholder && <div class="banner">Sample data — replace with the real story.</div>}
+  <Content />
+</Base>

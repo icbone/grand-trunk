@@ -1,0 +1,45 @@
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
+
+// One file per season: src/content/seasons/2004.md
+const seasons = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/seasons' }),
+  schema: z.object({
+    year: z.number(),
+    league: z.string().optional(), // e.g. "TUPA Open"
+    division: z.string().optional(),
+    record: z.string().optional(), // "8-4"
+    finish: z.string().optional(), // "Semifinalist"
+    captains: z.array(z.string()).default([]),
+    roster: z.array(z.string()).default([]),
+    games: z
+      .array(
+        z.object({
+          date: z.string().optional(),
+          opponent: z.string(),
+          score: z.string(), // "15-12" (Grand Trunk first)
+          result: z.enum(['W', 'L', 'T']),
+          note: z.string().optional(),
+        }),
+      )
+      .default([]),
+    // Set true on invented sample data so the site flags it. Remove once verified.
+    placeholder: z.boolean().default(false),
+    // Where the facts came from (Facebook post, league page, etc.)
+    sources: z.array(z.string()).default([]),
+  }),
+});
+
+// Lore / history stories: src/content/lore/*.md
+const lore = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/lore' }),
+  schema: z.object({
+    title: z.string(),
+    order: z.number().default(100),
+    year: z.number().optional(),
+    placeholder: z.boolean().default(false),
+  }),
+});
+
+export const collections = { seasons, lore };

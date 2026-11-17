@@ -1,0 +1,42 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+import { slugify } from '../../lib/players';
+export async function getStaticPaths() {
+  const seasons = await getCollection('seasons');
+  return seasons.map((s) => ({ params: { year: String(s.data.year) }, props: { season: s } }));
+}
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const { season } = Astro.props;
+const d = season.data;
+const { Content } = await render(season);
+---
+<Base title={`${d.year} season`}>
+  <h1>{d.year} season</h1>
+  <p class="lede">{[d.league, d.division].filter(Boolean).join(' · ')}{d.finish && ` — ${d.finish}`}{d.record && ` (${d.record})`}</p>
+  {d.placeholder && <div class="banner">Sample data — not real results yet.</div>}
+  <Content />
+  {d.captains.length > 0 && <p><b>Captains:</b> {d.captains.join(', ')}</p>}
+  {d.games.length > 0 && (
+    <>
+      <h2>Results</h2>
+      <table>
+        <thead><tr><th>Date</th><th>Opponent</th><th></th><th>Score</th><th>Note</th></tr></thead>
+        <tbody>
+          {d.games.map((g) => (
+            <tr><td>{g.date ?? ''}</td><td>{g.opponent}</td><td class={g.result}>{g.result}</td><td>{g.score}</td><td>{g.note ?? ''}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </>
+  )}
+  {d.roster.length > 0 && (
+    <>
+      <h2>Roster</h2>
+      <ul class="tags">
+        {d.roster.map((n) => <li><a href={`${base}/players/${slugify(n)}`}>{n}</a></li>)}
+      </ul>
+    </>
+  )}
+  {d.sources.length > 0 && <p class="lede">Sources: {d.sources.join('; ')}</p>}
+</Base>

@@ -1,0 +1,32 @@
+---
+import '../styles/global.css';
+interface Props { title?: string }
+const { title } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const full = title ? `${title} · Grand Trunk` : 'Grand Trunk Ultimate — Toronto, since 2004';
+const nav = [
+  ['Seasons', '/seasons'],
+  ['Players', '/players'],
+  ['Lore', '/lore'],
+];
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
+    <title>{full}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href={`${base}/`}>Grand Trunk</a>
+      <nav>
+        {nav.map(([label, href]) => <a href={`${base}${href}`}>{label}</a>)}
+      </nav>
+    </header>
+    <main><slot /></main>
+    <footer class="site-footer">
+      Grand Trunk · Toronto's longest-running open club ultimate team · est. 2004
+    </footer>
+  </body>
+</html>

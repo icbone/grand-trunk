@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { getPlayers } from '../lib/players';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const seasons = (await getCollection('seasons')).sort((a, b) => b.data.year - a.data.year);
+const players = await getPlayers();
+const first = Math.min(2004, ...seasons.map((s) => s.data.year));
+const anyPlaceholder = seasons.some((s) => s.data.placeholder);
+---
+<Base>
+  <h1>Grand Trunk</h1>
+  <p class="lede">Toronto's longest-running open club ultimate team. Rosters, results and lore, since 2004.</p>
+  {anyPlaceholder && <div class="banner">Work in progress: seasons marked “sample data” are placeholders until real history is filled in.</div>}
+  <div class="stats">
+    <div class="stat"><b>{new Date().getFullYear() - first}+</b><span>years of Grand Trunk</span></div>
+    <div class="stat"><b>{seasons.length}</b><span>seasons on file</span></div>
+    <div class="stat"><b>{players.length}</b><span>players on file</span></div>
+  </div>
+  <h2>Latest seasons</h2>
+  <ul class="plain">
+    {seasons.slice(0, 5).map((s) => (
+      <li><a href={`${base}/seasons/${s.data.year}`}>{s.data.year}</a>
+        {s.data.finish && <> — {s.data.finish}</>}{s.data.record && <> ({s.data.record})</>}</li>
+    ))}
+  </ul>
+  <p><a href={`${base}/seasons`}>All seasons →</a> · <a href={`${base}/lore`}>Read the lore →</a></p>
+</Base>

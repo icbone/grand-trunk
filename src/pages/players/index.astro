@@ -1,0 +1,18 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getPlayers } from '../../lib/players';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const players = await getPlayers();
+---
+<Base title="Players">
+  <h1>Players</h1>
+  <p class="lede">Everyone who has worn the jersey, ordered by seasons played.</p>
+  <table>
+    <thead><tr><th>Player</th><th>Seasons</th><th>First</th><th>Last</th></tr></thead>
+    <tbody>
+      {players.map((p) => (
+        <tr><td><a href={`${base}/players/${p.slug}`}>{p.name}</a></td><td>{p.years.length}</td><td>{p.years[0]}</td><td>{p.years.at(-1)}</td></tr>
+      ))}
+    </tbody>
+  </table>
+</Base>

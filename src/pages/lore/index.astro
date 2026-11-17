@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const lore = (await getCollection('lore')).sort((a, b) => a.data.order - b.data.order);
+---
+<Base title="Lore">
+  <h1>Lore</h1>
+  <ul class="plain">
+    {lore.map((l) => (
+      <li class="card" style="margin-bottom:.75rem">
+        <a href={`${base}/lore/${l.id}`}><b>{l.data.title}</b></a>{l.data.year && <> · {l.data.year}</>}
+        {l.data.placeholder && ' (sample)'}
+      </li>
+    ))}
+  </ul>
+</Base>
