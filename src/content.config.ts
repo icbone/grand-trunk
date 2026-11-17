@@ -36,6 +36,8 @@ const seasons = defineCollection({
         }),
       )
       .default([]),
+    // Game footage, e.g. { title: "Phoenix vs Grand Trunk", url: "https://youtube.com/..." }
+    videos: z.array(z.object({ title: z.string(), url: z.string().url(), note: z.string().optional() })).default([]),
     // Tournaments attended and where Grand Trunk finished
     tournaments: z
       .array(z.object({ name: z.string(), location: z.string().optional(), finish: z.string().optional(), note: z.string().optional() }))

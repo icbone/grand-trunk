@@ -75,6 +75,14 @@ const hasFacts = Boolean(d.league || d.division || d.record || d.gm || d.captain
       </table>
     </>
   )}
+  {d.videos.length > 0 && (
+    <>
+      <h2>Video</h2>
+      <ul class="plain highlights">
+        {d.videos.map((v) => <li class="card"><a href={v.url}>{v.title}</a>{v.note && <> · {v.note}</>}</li>)}
+      </ul>
+    </>
+  )}
   {d.roster.length > 0 && (
     <>
       <h2>Roster</h2>
