@@ -14,7 +14,8 @@ export type Person = {
   slug: string;
   years: number[]; // seasons played
   captain: number[]; // seasons as captain
-  coachYears: number[]; // seasons coached
+  coachYears: number[]; // seasons coached, including seasons as captain (GT's captains coached the team)
+  captainYears: number[]; // seasons as captain, whether or not on the roster
   awards: { year: number; award: string }[];
   highlights: { year: number; text: string }[];
 };
@@ -26,7 +27,7 @@ export async function getPeople(): Promise<Person[]> {
   const get = (raw: string) => {
     const name = canonical(raw);
     const slug = slugify(name);
-    const p = map.get(slug) ?? { name, slug, years: [], captain: [], coachYears: [], awards: [], highlights: [] };
+    const p = map.get(slug) ?? { name, slug, years: [], captain: [], coachYears: [], captainYears: [], awards: [], highlights: [] };
     map.set(slug, p);
     return p;
   };
@@ -38,12 +39,13 @@ export async function getPeople(): Promise<Person[]> {
       if (captains.includes(p.name)) p.captain.push(s.data.year);
     }
     for (const raw of s.data.coaches) get(raw).coachYears.push(s.data.year);
+    for (const raw of s.data.captains) { const p = get(raw); p.coachYears.push(s.data.year); p.captainYears.push(s.data.year); }
     for (const h of s.data.highlights) get(h.name).highlights.push({ year: s.data.year, text: h.text });
     for (const a of s.data.awards) get(a.name).awards.push({ year: s.data.year, award: a.award });
   }
   const sorted = (a: number[]) => [...new Set(a)].sort();
   return [...map.values()].map((p) => ({
-    ...p, years: sorted(p.years), captain: sorted(p.captain), coachYears: sorted(p.coachYears),
+    ...p, years: sorted(p.years), captain: sorted(p.captain), coachYears: sorted(p.coachYears), captainYears: sorted(p.captainYears),
     awards: [...p.awards].sort((a, b) => a.year - b.year),
     highlights: [...p.highlights].sort((a, b) => a.year - b.year),
   }));
@@ -56,7 +58,7 @@ export async function getPlayers(): Promise<Person[]> {
     .sort((a, b) => b.years.length - a.years.length || a.name.localeCompare(b.name));
 }
 
-/** Everyone who coached, most seasons coached first. */
+/** Everyone who coached or captained, most seasons first. */
 export async function getCoaches(): Promise<Person[]> {
   return (await getPeople())
     .filter((p) => p.coachYears.length > 0)

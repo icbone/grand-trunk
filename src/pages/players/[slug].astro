@@ -9,7 +9,7 @@ const { player } = Astro.props;
 const n = (k: number, w: string) => `${k} ${w}${k === 1 ? '' : 's'}`;
 const summary = [
   player.years.length && `${n(player.years.length, 'season')} played`,
-  player.coachYears.length && `${n(player.coachYears.length, 'season')} coached`,
+  player.coachYears.length && `${n(player.coachYears.length, 'season')} coached or captained`,
 ].filter(Boolean).join(' · ');
 ---
 <Base title={player.name}>
@@ -44,9 +44,9 @@ const summary = [
   )}
   {player.coachYears.length > 0 && (
     <>
-      <h2>Coached</h2>
+      <h2>Coached or captained</h2>
       <ul class="tags">
-        {player.coachYears.map((y) => <li><a href={`${base}/seasons/${y}`}>{y}</a></li>)}
+        {player.coachYears.map((y) => <li><a href={`${base}/seasons/${y}`}>{y}{player.captainYears.includes(y) && ' (C)'}</a></li>)}
       </ul>
     </>
   )}

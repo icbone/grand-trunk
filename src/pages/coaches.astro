@@ -6,19 +6,19 @@ const coaches = await getCoaches();
 ---
 <Base title="Coaches">
   <section class="hero">
-    <p class="eyebrow">{coaches.length} coaches on file</p>
+    <p class="eyebrow">{coaches.length} coaches and captains on file</p>
     <h1>Coaches</h1>
-    <p class="lede">Everyone who has coached Grand Trunk, with the seasons they coached.</p>
+    <p class="lede">Everyone who has coached or captained Grand Trunk. For most of the team's history the captains were also its coaches, so captain seasons count here. (C) marks a season as captain.</p>
   </section>
   <table>
     <caption class="sr-only">Grand Trunk coaches</caption>
-    <thead><tr><th scope="col">Coach</th><th scope="col">Seasons coached</th><th scope="col">Years</th><th scope="col">Also played</th></tr></thead>
+    <thead><tr><th scope="col">Name</th><th scope="col">Seasons coached</th><th scope="col">Years</th><th scope="col">Also played</th></tr></thead>
     <tbody>
       {coaches.map((c) => (
         <tr>
           <td><a href={`${base}/players/${c.slug}`}>{c.name}</a></td>
           <td>{c.coachYears.length}</td>
-          <td>{c.coachYears.join(', ')}</td>
+          <td>{c.coachYears.map((y) => c.captainYears.includes(y) ? `${y} (C)` : `${y}`).join(', ')}</td>
           <td>{c.years.length ? `${c.years.length} seasons` : '—'}</td>
         </tr>
       ))}
