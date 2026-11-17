@@ -26,6 +26,7 @@ const people = (names: string[]) => names.map(canonical).join(', ');
     {d.record && <><dt>Record</dt><dd>{d.record}</dd></>}
     {d.captains.length > 0 && <><dt>Captains</dt><dd>{d.captains.map((c, i) => <>{i > 0 && ', '}<a href={link(c)}>{canonical(c)}</a></>)}</dd></>}
     {d.coaches.length > 0 && <><dt>Coaches</dt><dd>{d.coaches.map((c, i) => <>{i > 0 && ', '}<a href={link(c)}>{canonical(c)}</a></>)}</dd></>}
+    {d.awards.length > 0 && <><dt>Awards</dt><dd>{d.awards.map((a, i) => <>{i > 0 && '; '}{a.award}: <a href={link(a.name)}>{canonical(a.name)}</a></>)}</dd></>}
     {d.gm && <><dt>General manager</dt><dd>{canonical(d.gm)}</dd></>}
     {d.roster.length > 0 && <><dt>Roster size</dt><dd>{d.roster.length} players</dd></>}
   </dl>

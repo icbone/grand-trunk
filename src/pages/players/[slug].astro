@@ -18,6 +18,14 @@ const summary = [
     <h1>{player.name}</h1>
     <p class="lede">{summary} with Grand Trunk</p>
   </section>
+  {player.awards.length > 0 && (
+    <>
+      <h2>Awards</h2>
+      <ul class="plain">
+        {player.awards.map((a) => <li><span role="img" aria-label="Award">🏆</span> {a.award}, <a href={`${base}/seasons/${a.year}`}>{a.year}</a></li>)}
+      </ul>
+    </>
+  )}
   {player.years.length > 0 && (
     <>
       <h2>Played</h2>

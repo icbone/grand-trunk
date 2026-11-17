@@ -15,6 +15,7 @@ export type Person = {
   years: number[]; // seasons played
   captain: number[]; // seasons as captain
   coachYears: number[]; // seasons coached
+  awards: { year: number; award: string }[];
 };
 
 /** People are derived from season rosters and coaches — no separate files to maintain. */
@@ -24,7 +25,7 @@ export async function getPeople(): Promise<Person[]> {
   const get = (raw: string) => {
     const name = canonical(raw);
     const slug = slugify(name);
-    const p = map.get(slug) ?? { name, slug, years: [], captain: [], coachYears: [] };
+    const p = map.get(slug) ?? { name, slug, years: [], captain: [], coachYears: [], awards: [] };
     map.set(slug, p);
     return p;
   };
@@ -36,10 +37,12 @@ export async function getPeople(): Promise<Person[]> {
       if (captains.includes(p.name)) p.captain.push(s.data.year);
     }
     for (const raw of s.data.coaches) get(raw).coachYears.push(s.data.year);
+    for (const a of s.data.awards) get(a.name).awards.push({ year: s.data.year, award: a.award });
   }
   const sorted = (a: number[]) => [...new Set(a)].sort();
   return [...map.values()].map((p) => ({
     ...p, years: sorted(p.years), captain: sorted(p.captain), coachYears: sorted(p.coachYears),
+    awards: [...p.awards].sort((a, b) => a.year - b.year),
   }));
 }
 

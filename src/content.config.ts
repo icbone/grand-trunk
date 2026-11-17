@@ -16,6 +16,8 @@ const seasons = defineCollection({
     captains: z.array(z.string()).default([]),
     gm: z.string().optional(), // general manager
     coaches: z.array(z.string()).default([]),
+    // Individual awards, e.g. { name: "Connor Armstrong", award: "CUC final MVP" }
+    awards: z.array(z.object({ name: z.string(), award: z.string() })).default([]),
     // Per-player tags for a season, e.g. { "Ian Bone": "Rookie" }
     rosterNotes: z.record(z.string(), z.string()).default({}),
     roster: z.array(z.string()).default([]),
