@@ -2,6 +2,8 @@
    Brand orange is 2.9:1 on white, so it is used only for decoration; orange text
    uses the darker #B03F00 (5.9:1) so everything meets WCAG AA. */
 :root {
+  /* Cabin: free humanist sans in the Johnston/Gill tradition, close to the TTC's Toronto Subway face */
+  --font: 'Cabin', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --bg: #ffffff;
   --fg: #223a5c;
   --muted: #4a5568;
@@ -15,7 +17,7 @@
 * { box-sizing: border-box; }
 html { scroll-padding-top: 1rem; }
 body { margin: 0; background: var(--bg); color: var(--fg);
-  font: 17px/1.6 Georgia, 'Times New Roman', serif; }
+  font: 17px/1.6 var(--font); }
 a { color: var(--navy); text-decoration: underline; text-decoration-color: var(--orange);
   text-decoration-thickness: 2px; text-underline-offset: 3px; }
 a:hover { color: var(--orange-text); }
@@ -33,7 +35,7 @@ a:hover { color: var(--orange-text); }
 .brand:hover { color: #fff; }
 .site-header :focus-visible { outline-color: #fff; }
 nav ul { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; list-style: none; margin: 0; padding: 0;
-  font-family: system-ui, sans-serif; font-size: 1rem; }
+  font-family: var(--font); font-size: 1rem; }
 nav a { color: #fff; text-decoration: none; padding: .35rem 0; display: inline-block;
   border-bottom: 3px solid transparent; }
 nav a:hover { color: #fff; border-bottom-color: var(--orange); }
@@ -45,10 +47,10 @@ h1, h2, h3 { line-height: 1.2; color: var(--navy); }
 h1 { font-size: 2.2rem; margin: 2rem 0 .5rem; }
 h2 { margin-top: 2rem; padding-bottom: .25rem; border-bottom: 2px solid var(--orange); display: inline-block; }
 .lede { color: var(--muted); font-size: 1.1rem; margin-top: 0; }
-.site-footer { color: var(--muted); font: .9rem system-ui, sans-serif;
+.site-footer { color: var(--muted); font: .9rem var(--font);
   padding-top: 1.5rem; padding-bottom: 2rem; border-top: 1px solid var(--line); }
 
-table { width: 100%; border-collapse: collapse; font-family: system-ui, sans-serif; font-size: .95rem; }
+table { width: 100%; border-collapse: collapse; font-family: var(--font); font-size: .95rem; }
 th, td { text-align: left; padding: .55rem .6rem; border-bottom: 1px solid var(--line); }
 th { color: var(--navy); font-weight: 700; font-size: .8rem; text-transform: uppercase;
   letter-spacing: .05em; border-bottom: 2px solid var(--navy); }
@@ -57,16 +59,16 @@ tbody tr:nth-child(even) { background: var(--card); }
 .card { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--orange);
   border-radius: 4px; padding: 1rem 1.25rem; }
 .banner { background: #fff4e5; color: #7a2e00; border-left: 4px solid var(--orange);
-  padding: .6rem .9rem; font: .95rem system-ui, sans-serif; margin: 1rem 0; }
+  padding: .6rem .9rem; font: .95rem var(--font); margin: 1rem 0; }
 .stats { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0; }
 .stat { flex: 1 1 8rem; border-top: 4px solid var(--orange); padding-top: .5rem; }
 .stat b { display: block; font-size: 1.9rem; color: var(--navy); }
-.stat span { color: var(--muted); font: .9rem system-ui, sans-serif; }
+.stat span { color: var(--muted); font: .9rem var(--font); }
 .W { color: var(--navy); font-weight: 700; } .L { color: var(--loss); font-weight: 700; }
 ul.plain { list-style: none; padding: 0; }
 .tags { display: flex; flex-wrap: wrap; gap: .4rem; padding: 0; list-style: none; }
 .tags li { background: var(--card); border: 1px solid var(--line); border-radius: 999px;
-  padding: .1rem .75rem; font: .95rem system-ui, sans-serif; }
+  padding: .1rem .75rem; font: .95rem var(--font); }
 .tags small { color: var(--muted); }
 @media (max-width: 40rem) {
   body { font-size: 16px; } h1 { font-size: 1.8rem; }
@@ -78,24 +80,24 @@ ul.plain { list-style: none; padding: 0; }
 .hero { padding: 2rem 0 1rem; border-bottom: 1px solid var(--line); margin-bottom: 1.5rem; }
 .hero h1 { margin: .25rem 0 .5rem; font-size: 2.6rem; }
 .hero .lede { margin-bottom: 0; max-width: 40rem; }
-.eyebrow { margin: 0; font: 700 .8rem system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase;
+.eyebrow { margin: 0; font: 700 .8rem var(--font); letter-spacing: .12em; text-transform: uppercase;
   color: var(--orange-text); }
 .eyebrow a { color: var(--orange-text); }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 1rem; }
 .season-card h2, .season-card h3 { margin: 0 0 .25rem; border: 0; padding: 0; display: block; font-size: 1.5rem; }
 .season-card p { margin: 0; }
 .season-card .finish { font-weight: 700; }
-.season-card .meta, .meta { color: var(--muted); font: .9rem system-ui, sans-serif; }
+.season-card .meta, .meta { color: var(--muted); font: .9rem var(--font); }
 .season-card.honour { border-left-color: var(--navy); background: #fff7f0; }
 .honours { display: grid; gap: .75rem; }
 .honours .card { font-size: 1.1rem; }
 .honours b { color: var(--orange-text); margin-left: .25rem; }
-.facts { display: grid; grid-template-columns: max-content 1fr; gap: .4rem 1.25rem; margin: 0 0 1.5rem; font-family: system-ui, sans-serif; }
+.facts { display: grid; grid-template-columns: max-content 1fr; gap: .4rem 1.25rem; margin: 0 0 1.5rem; font-family: var(--font); }
 .facts dt { color: var(--muted); font-weight: 600; }
 .facts dd { margin: 0; }
 .prose { max-width: 40rem; }
-.sources { color: var(--muted); font: .85rem system-ui, sans-serif; margin-top: 2rem; }
-.filter { margin: 0 0 1rem; font-family: system-ui, sans-serif; }
+.sources { color: var(--muted); font: .85rem var(--font); margin-top: 2rem; }
+.filter { margin: 0 0 1rem; font-family: var(--font); }
 .filter label { display: block; font-weight: 700; margin-bottom: .25rem; }
 .filter input { width: 100%; max-width: 22rem; padding: .6rem .75rem; font: inherit; color: var(--navy);
   background: #fff; border: 2px solid var(--navy); border-radius: 4px; }
