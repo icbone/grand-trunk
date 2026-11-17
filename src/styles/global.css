@@ -108,3 +108,7 @@ tr[hidden] { display: none; }
 .team-photo { margin: 1.5rem 0; }
 .team-photo img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); }
 .team-photo figcaption { margin-top: 0.5rem; color: var(--muted); font-size: 0.9rem; }
+
+.logo-figure { margin: 1.5rem 0; max-width: 20rem; }
+.logo-figure img { display: block; width: 100%; height: auto; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 1rem; box-sizing: border-box; }
+.logo-figure figcaption { margin-top: 0.5rem; color: var(--muted); font-size: 0.9rem; }
