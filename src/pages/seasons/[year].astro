@@ -17,6 +17,7 @@ const { Content } = await render(season);
   {d.placeholder && <div class="banner">Sample data — not real results yet.</div>}
   <Content />
   {d.captains.length > 0 && <p><b>Captains:</b> {d.captains.join(', ')}</p>}
+  {d.gm && <p><b>General manager:</b> {d.gm}</p>}
   {d.games.length > 0 && (
     <>
       <h2>Results</h2>
@@ -36,6 +37,12 @@ const { Content } = await render(season);
       <ul class="tags">
         {d.roster.map((n) => <li><a href={`${base}/players/${slugify(n)}`}>{n}</a></li>)}
       </ul>
+    </>
+  )}
+  {d.practiceRoster.length > 0 && (
+    <>
+      <h2>Practice roster</h2>
+      <ul class="tags">{d.practiceRoster.map((n) => <li>{n}</li>)}</ul>
     </>
   )}
   {d.sources.length > 0 && <p class="lede">Sources: {d.sources.join('; ')}</p>}

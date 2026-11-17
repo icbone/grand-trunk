@@ -12,6 +12,8 @@ const seasons = defineCollection({
     record: z.string().optional(), // "8-4"
     finish: z.string().optional(), // "Semifinalist"
     captains: z.array(z.string()).default([]),
+    gm: z.string().optional(), // general manager
+    practiceRoster: z.array(z.string()).default([]),
     roster: z.array(z.string()).default([]),
     games: z
       .array(
