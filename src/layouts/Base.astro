@@ -19,13 +19,22 @@ const nav = [
     <title>{full}</title>
   </head>
   <body>
+    <a class="skip" href="#main">Skip to content</a>
     <header class="site-header">
-      <a class="brand" href={`${base}/`}>Grand Trunk</a>
-      <nav>
-        {nav.map(([label, href]) => <a href={`${base}${href}`}>{label}</a>)}
-      </nav>
+      <div class="inner">
+        <a class="brand" href={`${base}/`}>Grand Trunk</a>
+        <nav aria-label="Main">
+          <ul>
+            {nav.map(([label, href]) => {
+              const path = `${base}${href}`;
+              const current = Astro.url.pathname.replace(/\/$/, '').startsWith(path);
+              return <li><a href={path} aria-current={current ? 'page' : undefined}>{label}</a></li>;
+            })}
+          </ul>
+        </nav>
+      </div>
     </header>
-    <main><slot /></main>
+    <main id="main"><slot /></main>
     <footer class="site-footer">
       Grand Trunk · Toronto's longest-running open club ultimate team · est. 2004
     </footer>
