@@ -1,1 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#1f5b3f"/><text x="16" y="23" font-family="Georgia,serif" font-size="20" font-weight="700" text-anchor="middle" fill="#fff">GT</text></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #f63;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <rect class="cls-2" width="100" height="100"/>
+    <g>
+      <path class="cls-1" d="M23.22,37.96h58.98v5.43H17.8C17.8,40.39,20.23,37.96,23.22,37.96Z"/>
+      <path class="cls-1" d="M17.86,42.78h5.3s.06.03.06.06v19.14s-.03.06-.06.06h0c-2.96,0-5.36-2.4-5.36-5.36v-13.84S17.83,42.78,17.86,42.78Z"/>
+      <path class="cls-1" d="M22.61,56.61h28.04c0,3-2.43,5.43-5.42,5.43h-22.62V56.61H22.61Z"/>
+      <rect class="cls-1" x="45.23" y="47.51" width="5.42" height="9.77"/>
+      <rect class="cls-1" x="63.46" y="43.39" width="5.42" height="18.36"/>
+      <rect class="cls-1" x="37.96" y="47.51" width="12.69" height="5.42"/>
+    </g>
+  </g>
+</svg>

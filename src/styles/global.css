@@ -1,12 +1,12 @@
-/* Grand Trunk brand: navy + orange on white.
-   Orange (#F26B1D) is decorative / on navy only; text on white uses the darker
-   orange (#B03F00, 5.9:1) so everything meets WCAG AA. */
+/* Grand Trunk brand (from the GT logo): navy #223A5C + orange #FF6633 on white.
+   Brand orange is 2.9:1 on white, so it is used only for decoration; orange text
+   uses the darker #B03F00 (5.9:1) so everything meets WCAG AA. */
 :root {
   --bg: #ffffff;
-  --fg: #0f2147;
+  --fg: #223a5c;
   --muted: #4a5568;
-  --navy: #0f2147;
-  --orange: #f26b1d;
+  --navy: #223a5c;
+  --orange: #ff6633;
   --orange-text: #b03f00;
   --line: #c9d0dc;
   --card: #f5f7fa;
@@ -27,8 +27,9 @@ a:hover { color: var(--orange-text); }
 .site-header { background: var(--navy); border-bottom: 4px solid var(--orange); }
 .site-header .inner { max-width: 56rem; margin: 0 auto; padding: 1rem;
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .75rem 1.5rem; }
-.brand { font-size: 1.5rem; font-weight: 700; color: #fff; text-decoration: none;
-  letter-spacing: .06em; text-transform: uppercase; }
+.brand { display: inline-flex; align-items: center; gap: .6rem; font-size: 1.5rem; font-weight: 700;
+  color: #fff; text-decoration: none; letter-spacing: .06em; text-transform: uppercase; }
+.brand img { width: 52px; height: 52px; display: block; }
 .brand:hover { color: #fff; }
 .site-header :focus-visible { outline-color: #fff; }
 nav ul { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; list-style: none; margin: 0; padding: 0;
