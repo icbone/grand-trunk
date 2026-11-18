@@ -19,7 +19,7 @@ Joystik finished 3rd at Nationals in 2003, and some of its younger players saw a
 
 So in 2004 the younger players decided it was time for a truly Toronto-based team that could compete with GOAT. They came from a few places:
 
-- the younger players on **Joystik**, including Phil, [Shooter](/grand-trunk/players/scott-hastie), [Dean](/grand-trunk/players/dean-ruhnke), [Inian](/grand-trunk/players/inian-moorthy), [Magnum](/grand-trunk/players/david-pickwoad) and [Kirk](/grand-trunk/players/kirk-nylen);
+- the younger players on **Joystik**, including [Phil](/grand-trunk/players/phil-watanabe), [Shooter](/grand-trunk/players/scott-hastie), [Dean](/grand-trunk/players/dean-ruhnke), [Inian](/grand-trunk/players/inian-moorthy), [Magnum](/grand-trunk/players/david-pickwoad) and [Kirk](/grand-trunk/players/kirk-nylen);
 - the **University of Toronto**, including [Peter](/grand-trunk/players/peter-jamieson), [Chua](/grand-trunk/players/shawn-chua) and [Peyton](/grand-trunk/players/peyton-leung);
 - one or two younger players from **Black Sheep**, a mixed team that later became Bombing Madd Fatties and then Union;
 - some of the best up-and-coming young players from **Pong**.
