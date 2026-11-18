@@ -13,7 +13,7 @@ In 2002 things consolidated. Redi Knights, Y.E.S., Nerve and Ottawa's Wax combin
 
 GOAT was Toronto's top open team, but its roster was split evenly across Toronto, Ottawa and Montreal, so only six or seven players were local for practices. Joystik was the old guard of Toronto's top players, legends like Simo, Robin Coster, Derek Baxter, Daryl Chow, Jim Lim and Joe Aziz. It practiced once a week and never trained with GOAT.
 
-Joystik finished 3rd at Nationals in 2003, and some of its younger players saw a chance to do even better. After the season, [Inian](/grand-trunk/players/inian-moorthy) and a teammate asked Joystik's leadership to move to two practices a week and make a run at a Canadian title. After a lot of deliberation, Joystik's players, busy with families and jobs, kept their commitment the same.
+Joystik finished 3rd at Nationals in 2003, and some of its younger players saw a chance to do even better. After the season, [Inian](/grand-trunk/players/inian-moorthy) and [Kirk](/grand-trunk/players/kirk-nylen) asked Joystik's leadership to move to two practices a week and make a run at a Canadian title. After a lot of deliberation, Joystik's players, busy with families and jobs, kept their commitment the same.
 
 ## The breakaway
 
@@ -36,7 +36,7 @@ The inaugural season was a strong one. Grand Trunk beat Joystik and became the t
 
 ## Birth of the club system
 
-Grand Trunk caught GOAT's attention. After the 2004 season, Hass, Dime, [Inian](/grand-trunk/players/inian-moorthy) and another GT leader brokered a merger, and 14 players from the 2004 Grand Trunk team joined GOAT for 2005. GOAT became an almost entirely Toronto team, and 2005 was a rough year for Grand Trunk as it looked for a new identity.
+Grand Trunk caught GOAT's attention. After the 2004 season, Hass, Dime, [Inian](/grand-trunk/players/inian-moorthy) and [Kirk](/grand-trunk/players/kirk-nylen) brokered a merger, and 14 players from the 2004 Grand Trunk team joined GOAT for 2005. GOAT became an almost entirely Toronto team, and 2005 was a rough year for Grand Trunk as it looked for a new identity.
 
 The merger created a formal farm system in Toronto that lasted more than a decade. GOAT, Grand Trunk and Roy held tryouts together, and their leaders coordinated roster selection. Tryout players for GOAT and GT practiced and scrimmaged together in "May GOAT League", with final teams picked after the TUF tournament. GOAT regularly called up players from GT, and GT did the same with Roy. Too Bad offered a home for players who didn't fit the club system.
 
@@ -44,6 +44,6 @@ Joystik played one more season, in 2005, then folded. Its players later regroupe
 
 ---
 
-*Sources: recollections from a founding player; [Toronto Ultimate Club, History of Open Touring in Toronto](https://www.tuc.org/node/33979), including its team lineage chart.*
+*Sources: [Toronto Ultimate Club, History of Open Touring in Toronto](https://www.tuc.org/node/33979), including its team lineage chart.*
 
 *Got a story, a name, or a correction? It's all welcome.*
